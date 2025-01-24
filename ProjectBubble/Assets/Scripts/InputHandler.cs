@@ -14,11 +14,12 @@ public class InputHandler : MonoBehaviour
     private DashingController dashingController;
     private MultiHookController multiHookController; // needs to be changed for 1 input and multiple hooks
 
-    [Header("Modify Movement Inputs")]
+    [Header("Modify Inputs")]
     [SerializeField] private bool toggleCrouch = false;
     [SerializeField] private bool toggleSprint = false;
+    [SerializeField] private bool enabledReloadGun = false;
 
-    [Header("Bonus Movement Capabilities")]
+    [Header("Bonus Capabilities")]
     [SerializeField] private bool enabledShoot = false;
     [SerializeField] private bool enableSprint = false;
     [SerializeField] private bool enableCrouch = false;
@@ -32,7 +33,6 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private bool enableRopeSwing = false;
 
     #region InputHandleFunctions
-
     private float xRotation;
     private float yRotation;
 
@@ -93,6 +93,7 @@ public class InputHandler : MonoBehaviour
     private bool dashInput = false;
     private void HandleDash(bool val)
     { dashInput = val; }
+    // Unused. Currently same as shoot input
     private bool grappleInput = false;
     private void HandleGrapple(bool val)
     { grappleInput = val; }
@@ -105,6 +106,53 @@ public class InputHandler : MonoBehaviour
     private bool shootInput = false;
     private void HandleShoot(bool val)
     { shootInput = val; }
+    private bool reloadInput = false;
+    private void HandleReload(bool val)
+    { reloadInput = val; }
+    private bool interactInput = false;
+    private void HandleInteract(bool val) 
+    { interactInput = val; }
+
+    private void AssignInputs()
+    {
+        inputEnabled = true;
+        inputReader.MoveEvent += HandleMove;
+        inputReader.LookEvent += HandleLook;
+        inputReader.JumpEvent += HandleJump;
+        inputReader.CrouchEvent += HandleCrouch;
+        inputReader.SprintEvent += HandleSprint;
+        inputReader.DashEvent += HandleUpwardsWallRun;
+        inputReader.SlideEvent += HandleDownwardsWallRun;
+        inputReader.SlideEvent += HandleSlide;
+        inputReader.DashEvent += HandleDash;
+        inputReader.GrappleEvent += HandleGrapple;
+        inputReader.SwingEvent += HandleSwing;
+        inputReader.AlternateEvent += HandleAlternate;
+        inputReader.ShootEvent += HandleShoot;
+        inputReader.ReloadEvent += HandleReload;
+        inputReader.InteractEvent += HandleInteract;
+    }
+    private void UnassignInputs()
+    {
+        inputEnabled = false;
+        inputReader.MoveEvent -= HandleMove;
+        inputReader.LookEvent -= HandleLook;
+        inputReader.JumpEvent -= HandleJump;
+        inputReader.CrouchEvent -= HandleCrouch;
+        inputReader.SprintEvent -= HandleSprint;
+        inputReader.DashEvent -= HandleUpwardsWallRun;
+        inputReader.SlideEvent -= HandleDownwardsWallRun;
+        inputReader.SlideEvent -= HandleSlide;
+        inputReader.DashEvent -= HandleDash;
+        inputReader.GrappleEvent -= HandleGrapple;
+        inputReader.SwingEvent -= HandleSwing;
+        inputReader.AlternateEvent -= HandleAlternate;
+        inputReader.ShootEvent -= HandleShoot;
+        inputReader.ReloadEvent -= HandleReload;
+        inputReader.InteractEvent -= HandleInteract;
+
+        ResetInputValues();
+    }
     #endregion
     private void OnDisable()
     { UnassignInputs(); }
@@ -129,6 +177,9 @@ public class InputHandler : MonoBehaviour
                 { dashingController = dc; }
                 if (playerComponentHolder.TryGetComponent(out MultiHookController mhc))
                 { multiHookController = mhc; }
+
+                // Aquire shoot script here
+                // Same for reload and interact
             }
         }
         else
@@ -181,6 +232,7 @@ public class InputHandler : MonoBehaviour
         }
 
         // Put Shoot script enabling here
+        // Same for reload and interact
 
         if (multiHookController)
         {
@@ -207,42 +259,7 @@ public class InputHandler : MonoBehaviour
         movementInput = Vector2.zero;
         sprintInput = false;
     }
-    private void AssignInputs()
-    {
-        inputEnabled = true;
-        inputReader.MoveEvent += HandleMove;
-        inputReader.LookEvent += HandleLook;
-        inputReader.JumpEvent += HandleJump;
-        inputReader.CrouchEvent += HandleCrouch;
-        inputReader.SprintEvent += HandleSprint;
-        inputReader.DashEvent += HandleUpwardsWallRun;
-        inputReader.SlideEvent += HandleDownwardsWallRun;
-        inputReader.SlideEvent += HandleSlide;
-        inputReader.DashEvent += HandleDash;
-        inputReader.GrappleEvent += HandleGrapple;
-        inputReader.SwingEvent += HandleSwing;
-        inputReader.AlternateEvent += HandleAlternate;
-        inputReader.ShootEvent += HandleShoot;
-    }
-    private void UnassignInputs()
-    {
-        inputEnabled = false;
-        inputReader.MoveEvent -= HandleMove;
-        inputReader.LookEvent -= HandleLook;
-        inputReader.JumpEvent -= HandleJump;
-        inputReader.CrouchEvent -= HandleCrouch;
-        inputReader.SprintEvent -= HandleSprint;
-        inputReader.DashEvent -= HandleUpwardsWallRun;
-        inputReader.SlideEvent -= HandleDownwardsWallRun;
-        inputReader.SlideEvent -= HandleSlide;
-        inputReader.DashEvent -= HandleDash;
-        inputReader.GrappleEvent -= HandleGrapple;
-        inputReader.SwingEvent -= HandleSwing;
-        inputReader.AlternateEvent -= HandleAlternate; 
-        inputReader.ShootEvent -= HandleShoot;
-
-        ResetInputValues();
-    }
+    
 
     private void CameraControl()
     {
@@ -290,7 +307,7 @@ public class InputHandler : MonoBehaviour
             { dashingController.HandlePlayerInputs(movementInput, dashInput); }
 
             // Put shooting input feed into shoot script here
-            //Debug.Log(shootInput);
+            // Same for reload and interact
 
             if (multiHookController && enableMultiHook)
             {

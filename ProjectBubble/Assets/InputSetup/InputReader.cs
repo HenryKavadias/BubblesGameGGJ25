@@ -20,6 +20,8 @@ public class InputReader : ScriptableObject, IFPControlsActions
     public event Action<bool> SwingEvent;
     public event Action<bool> AlternateEvent;
     public event Action<bool> ShootEvent;
+    public event Action<bool> ReloadEvent;
+    public event Action<bool> InteractEvent;
 
     [Range(1f, 500f)] public float mouseSensitivityX = 100f;
     [Range(1f, 500f)] public float mouseSensitivityY = 100f;
@@ -58,4 +60,8 @@ public class InputReader : ScriptableObject, IFPControlsActions
     { AlternateEvent?.Invoke(context.action.IsPressed()); }
     public void OnShoot(InputAction.CallbackContext context)
     { ShootEvent?.Invoke(context.action.IsPressed()); ; }
+    public void OnReload(InputAction.CallbackContext context)
+    { ReloadEvent?.Invoke(context.action.IsPressed()); }
+    public void OnInteract(InputAction.CallbackContext context)
+    { InteractEvent?.Invoke(context.action.IsPressed()); }
 }

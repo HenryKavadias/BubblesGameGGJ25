@@ -125,6 +125,24 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""0c84634a-9799-49fc-b19c-ddb5fd11e1ca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8cd37f4e-5839-4073-9abf-0786ed998d67"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -292,6 +310,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c50b825c-138b-4d96-a77b-26d7c451dbc7"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3af08cc6-acbf-477e-916d-6b7231aead60"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -328,11 +368,13 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_FPControls_Swing = m_FPControls.FindAction("Swing", throwIfNotFound: true);
         m_FPControls_Alternate = m_FPControls.FindAction("Alternate", throwIfNotFound: true);
         m_FPControls_Shoot = m_FPControls.FindAction("Shoot", throwIfNotFound: true);
+        m_FPControls_Reload = m_FPControls.FindAction("Reload", throwIfNotFound: true);
+        m_FPControls_Interact = m_FPControls.FindAction("Interact", throwIfNotFound: true);
     }
 
     ~@PlayerInputs()
     {
-        UnityEngine.Debug.Assert(!m_FPControls.enabled, "This will cause a leak and performance issues, PlayerInputs.FPControls.Disable() has not been called.");
+        //UnityEngine.Debug.Assert(!m_FPControls.enabled, "This will cause a leak and performance issues, PlayerInputs.FPControls.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -405,6 +447,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_FPControls_Swing;
     private readonly InputAction m_FPControls_Alternate;
     private readonly InputAction m_FPControls_Shoot;
+    private readonly InputAction m_FPControls_Reload;
+    private readonly InputAction m_FPControls_Interact;
     public struct FPControlsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -420,6 +464,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Swing => m_Wrapper.m_FPControls_Swing;
         public InputAction @Alternate => m_Wrapper.m_FPControls_Alternate;
         public InputAction @Shoot => m_Wrapper.m_FPControls_Shoot;
+        public InputAction @Reload => m_Wrapper.m_FPControls_Reload;
+        public InputAction @Interact => m_Wrapper.m_FPControls_Interact;
         public InputActionMap Get() { return m_Wrapper.m_FPControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -462,6 +508,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IFPControlsActions instance)
@@ -499,6 +551,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IFPControlsActions instance)
@@ -538,5 +596,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnSwing(InputAction.CallbackContext context);
         void OnAlternate(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
