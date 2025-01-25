@@ -2,15 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//[Serializable]
-//public class Sound
-//{
-//    //public SoundType soundType;
-//    public string name;
-//    public AudioClip clip;
-//}
-
 // Holds and managers all the sounds and music tracks in the game
 public class AudioManager : MonoBehaviour
 {
