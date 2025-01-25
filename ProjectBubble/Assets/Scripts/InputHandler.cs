@@ -13,6 +13,7 @@ public class InputHandler : MonoBehaviour
     private WallRunningController wallRunningController;   // works but needs improvement
     private DashingController dashingController;
     private MultiHookController multiHookController; // needs to be changed for 1 input and multiple hooks
+    [SerializeField] private WeaponParent weaponParentController;
 
     [Header("Modify Inputs")]
     [SerializeField] private bool toggleCrouch = false;
@@ -177,7 +178,8 @@ public class InputHandler : MonoBehaviour
                 { dashingController = dc; }
                 if (playerComponentHolder.TryGetComponent(out MultiHookController mhc))
                 { multiHookController = mhc; }
-
+                if (playerComponentHolder.TryGetComponent(out WeaponParent wp))
+                { weaponParentController = wp; }
                 // Aquire shoot script here
                 // Same for reload and interact
             }
@@ -232,6 +234,10 @@ public class InputHandler : MonoBehaviour
         }
 
         // Put Shoot script enabling here
+        if (weaponParentController)
+        {
+            
+        }
         // Same for reload and interact
 
         if (multiHookController)
@@ -308,7 +314,10 @@ public class InputHandler : MonoBehaviour
 
             // Put shooting input feed into shoot script here
             // Same for reload and interact
-
+            if (weaponParentController && enabledShoot)
+                weaponParentController.HandlePlayerInputs(shootInput);
+            
+            
             if (multiHookController && enableMultiHook)
             {
                 multiHookController.HandlePlayerInputs(
