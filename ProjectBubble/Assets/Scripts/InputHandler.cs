@@ -113,6 +113,9 @@ public class InputHandler : MonoBehaviour
     private bool interactInput = false;
     private void HandleInteract(bool val) 
     { interactInput = val; }
+    private bool swapInput = false;
+    private void HandleSwap(bool val)
+    {  swapInput = val; }
 
     private void AssignInputs()
     {
@@ -132,6 +135,7 @@ public class InputHandler : MonoBehaviour
         inputReader.ShootEvent += HandleShoot;
         inputReader.ReloadEvent += HandleReload;
         inputReader.InteractEvent += HandleInteract;
+        inputReader.SwapEvent += HandleSwap;
     }
     private void UnassignInputs()
     {
@@ -151,6 +155,7 @@ public class InputHandler : MonoBehaviour
         inputReader.ShootEvent -= HandleShoot;
         inputReader.ReloadEvent -= HandleReload;
         inputReader.InteractEvent -= HandleInteract;
+        inputReader.SwapEvent -= HandleSwap;    
 
         ResetInputValues();
     }
@@ -317,7 +322,7 @@ public class InputHandler : MonoBehaviour
             // Put shooting input feed into shoot script here
             // Same for reload and interact
             if (playerManagerController && enableShoot)
-            { playerManagerController.HandlePlayerInputs(shootInput); }
+            { playerManagerController.HandlePlayerInputs(shootInput, swapInput); }
             
             if (multiHookController && enableMultiHook)
             {

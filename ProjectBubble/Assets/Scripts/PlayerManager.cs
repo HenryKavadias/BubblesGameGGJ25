@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private WeaponParent weaponParentController;
+    [SerializeField] private WeaponParent[] weaponParentController;
     [SerializeField] private GameObject gunHolder;
-    
+    private int currentWeapon = 0;
+    private InputDetector swapWeaponInput;
+
     public void AssignCameraToWeapon(GameObject camera)
     {
-        weaponParentController.fpsCam = camera;
+        for (int i = 0; i < weaponParentController.Length; i++)
+        {
+            weaponParentController[i].fpsCam = camera;
+        }
+        
     }
 
     public void RotateGunHolder(float x, float y)
@@ -16,9 +22,35 @@ public class PlayerManager : MonoBehaviour
         gunHolder.transform.rotation = Quaternion.Euler(x, y, 0);
     }
 
-    public void HandlePlayerInputs(bool input)
+    public void HandlePlayerInputs(bool shootInput, bool swapInput)
     {
-        weaponParentController.HandlePlayerInputs(input);
+        swapWeaponInput.inputState = swapInput;
+
+        weaponParentController[currentWeapon].HandlePlayerInputs(shootInput);
+    }
+
+    private void Update()
+    {
+        int inputHasChanged = swapWeaponInput.HasStateChanged();
+
+        // weapon swap
+        if (inputHasChanged == 0)
+        {
+            if (currentWeapon + 1 >= weaponParentController.Length)
+            {
+                weaponParentController[currentWeapon].gameObject.SetActive(false);
+                currentWeapon = 0;
+                weaponParentController[currentWeapon].gameObject.SetActive(true);
+
+            }
+            else
+            {
+                weaponParentController[currentWeapon].gameObject.SetActive(false);
+                currentWeapon++;
+                weaponParentController[currentWeapon].gameObject.SetActive(true);
+
+            }
+        }
     }
 
     public void OnDestroy()

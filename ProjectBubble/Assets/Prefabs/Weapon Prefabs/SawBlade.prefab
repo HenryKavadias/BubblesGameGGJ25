@@ -140,10 +140,9 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 44265450784638070, guid: 1c5bb61041313884b84db8131ec5738c, type: 3}
   _spread: 0
   FireRate: 1
-  fpsCam: {fileID: 0}
   ProjectileSpeed: 250
-  ShootPoint: {fileID: 0}
-  AgainstWallShootPoint: {fileID: 0}
+  ShootPoint: {fileID: 8749935642376798363}
+  AgainstWallShootPoint: {fileID: 783201339861499560}
   CollisionCheck:
     serializedVersion: 2
     m_Bits: 640
