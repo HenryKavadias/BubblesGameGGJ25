@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5431636286609123707}
   - component: {fileID: 5699088043100484065}
+  - component: {fileID: 4132003093601877830}
   - component: {fileID: 7658964023484991266}
   - component: {fileID: 905400308433239696}
-  - component: {fileID: 2961183096817424000}
   - component: {fileID: 6102094493248559026}
+  - component: {fileID: 5678838964798885925}
   m_Layer: 8
   m_Name: MentosProjectile
   m_TagString: Projectile
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 147384324973615031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77664876, y: 0.8086497, z: -1.8360709}
+  m_LocalPosition: {x: -6.2497716, y: 0.47689056, z: -18.194351}
   m_LocalScale: {x: 0.22218, y: 0.11109, z: 0.22218}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,13 +49,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f72d512fd3f42d45a4f715f051c1d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletLife: 15
-  damageMin: 2
-  damageMax: 5
+  damage: 1
+  BulletLife: 3
   DamagePowerUpMultiplier: 1
   Collisions:
     serializedVersion: 2
-    m_Bits: 896
+    m_Bits: 960
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4132003093601877830}
+        m_TargetAssemblyTypeName: PoolObject, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4132003093601877830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147384324973615031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24282caa5e8e8c549acd42da090bdd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!33 &7658964023484991266
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,27 +141,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2961183096817424000
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147384324973615031}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6102094493248559026
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,3 +168,25 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!64 &5678838964798885925
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147384324973615031}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}

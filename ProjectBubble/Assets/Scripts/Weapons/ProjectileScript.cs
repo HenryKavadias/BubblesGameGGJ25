@@ -1,17 +1,22 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-public class ProjectileScript : MonoBehaviour
+public class ProjectileScript : Damager
 {
-    public float BulletLife = 15f;
+    public float BulletLife = 5f;
     protected float BulletLifeTimer = 0;
-    public float damageMin = 0, damageMax = 0;
     public float DamagePowerUpMultiplier = 1f;
     public LayerMask Collisions;
-    protected virtual float RandomWeaponDamage => Random.Range(damageMin, damageMax);
+    //protected virtual float RandomWeaponDamage => Random.Range(damageMin, damageMax);
     private Vector3 _previousPos;
+
+    public UnityEvent OnHit;
+
+    private void OnEnable()
+    { BulletLifeTimer = BulletLife; }
 
     private void Update()
     {
@@ -23,6 +28,13 @@ public class ProjectileScript : MonoBehaviour
         {
             HitEntity(hit.transform.gameObject);
         }
+
+        if (BulletLifeTimer > 0)
+        { BulletLifeTimer -= Time.deltaTime; }
+        else
+        {
+            OnHit?.Invoke();
+        }
     }
 
     private void LateUpdate()
@@ -31,20 +43,22 @@ public class ProjectileScript : MonoBehaviour
     }
     void HitEntity(GameObject entity)
     {
-        if (gameObject.CompareTag("Enemy"))
-        {
-            
-        }
         if (KillProjectile(entity.GetComponent<Collider>()))
         {
-            Destroy(gameObject);
+            OnHit?.Invoke();
+            //Destroy(gameObject);
         }
     }
     public void OnTriggerEnter(Collider other)
     {
         if (KillProjectile(other))
         {
-            Destroy(gameObject);
+            Damageable damageable =
+            other.transform.root.GetComponent<Damageable>();
+
+            if (damageable)
+            { Damage(damageable); }
+            OnHit?.Invoke();
         }
     }
 

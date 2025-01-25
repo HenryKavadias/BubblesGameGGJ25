@@ -14,7 +14,7 @@ public abstract class WeaponParent : MonoBehaviour
    protected float nextTimeToFire = 0f;
    protected Vector3 gunDir, forwardVector, hitSpot;
    private float _reloadCurrentTimer = 0;
-   [SerializeField] private Camera fpsCam;
+   public GameObject fpsCam { get; set; }
    protected RaycastHit weaponhit;
    [SerializeField] private int ProjectileSpeed = 250;
    
@@ -70,16 +70,23 @@ public abstract class WeaponParent : MonoBehaviour
    
    protected virtual void ShootProjectile(GameObject prefab)
    {
-      GameObject a = Instantiate(prefab, shootPointRef.position, fpsCam.transform.rotation);
-
+        //GameObject a = Instantiate(prefab, shootPointRef.position, fpsCam.transform.rotation);
+      PoolObject atk;
+      if (prefab.TryGetComponent(out PoolObject pref))
+      {
+            atk = PoolManager.Spawn(pref, shootPointRef.position, fpsCam.transform.rotation);
+      }
+      else
+      {
+          return;
+      }
+      
             
-      ProjectileScript projectile = a.GetComponent<ProjectileScript>();
+      ProjectileScript projectile = atk.GetComponent<ProjectileScript>();
       
       Debug.Log(projectile.RB.linearVelocity);
       _projectilePrefab.transform.position = shootPointRef.position + (gunDir);
 
-      projectile.damageMin = _damageMin;
-      projectile.damageMax = _damageMax;
       projectile.RB.linearVelocity = gunDir * ProjectileSpeed;
    }
    

@@ -316,9 +316,11 @@ GameObject:
   - component: {fileID: 720212554}
   - component: {fileID: 720212553}
   - component: {fileID: 720212552}
-  - component: {fileID: 720212551}
   - component: {fileID: 720212550}
-  m_Layer: 0
+  - component: {fileID: 720212557}
+  - component: {fileID: 720212556}
+  - component: {fileID: 720212551}
+  m_Layer: 9
   m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,6 +454,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &720212556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720212549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda4d0585db279b4d84f3b3787b222bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 720212557}
+  _shield: {fileID: 0}
+  invincible: 0
+  invincibleTime: 0.2
+  hitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &720212557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720212549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da7763a0629dc5449545b995c0da466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initial: 10
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 720212551}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class InputHandler : MonoBehaviour
     private WallRunningController wallRunningController;   // works but needs improvement
     private DashingController dashingController;
     private MultiHookController multiHookController; // needs to be changed for 1 input and multiple hooks
-    [SerializeField] private WeaponParent weaponParentController;
+    private PlayerManager playerManagerController;
 
     [Header("Modify Inputs")]
     [SerializeField] private bool toggleCrouch = false;
@@ -21,7 +21,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private bool enabledReloadGun = false;
 
     [Header("Bonus Capabilities")]
-    [SerializeField] private bool enabledShoot = false;
+    [SerializeField] private bool enableShoot = false;
     [SerializeField] private bool enableSprint = false;
     [SerializeField] private bool enableCrouch = false;
     [SerializeField] private bool enableSlide = false;
@@ -178,8 +178,9 @@ public class InputHandler : MonoBehaviour
                 { dashingController = dc; }
                 if (playerComponentHolder.TryGetComponent(out MultiHookController mhc))
                 { multiHookController = mhc; }
-                if (playerComponentHolder.TryGetComponent(out WeaponParent wp))
-                { weaponParentController = wp; }
+                if (playerComponentHolder.TryGetComponent(out PlayerManager pm))
+                { playerManagerController = pm; }
+                
                 // Aquire shoot script here
                 // Same for reload and interact
             }
@@ -234,10 +235,8 @@ public class InputHandler : MonoBehaviour
         }
 
         // Put Shoot script enabling here
-        if (weaponParentController)
-        {
-            
-        }
+        if (playerManagerController && enableShoot)
+        { playerManagerController.AssignCameraToWeapon(playerCamera);  }
         // Same for reload and interact
 
         if (multiHookController)
@@ -265,8 +264,6 @@ public class InputHandler : MonoBehaviour
         movementInput = Vector2.zero;
         sprintInput = false;
     }
-    
-
     private void CameraControl()
     {
         yRotation += lookInput.x * inputReader.mouseSensitivityX * Time.deltaTime;
@@ -282,6 +279,11 @@ public class InputHandler : MonoBehaviour
         {
             characterMovementController.UpdateOrientationRotation(yRotation);
             characterMovementController.UpdateGrappleOrientationRotation(xRotation, yRotation);
+        }
+
+        if (playerManagerController)
+        {
+            playerManagerController.RotateGunHolder(xRotation, yRotation);
         }
     }
 
@@ -314,9 +316,8 @@ public class InputHandler : MonoBehaviour
 
             // Put shooting input feed into shoot script here
             // Same for reload and interact
-            if (weaponParentController && enabledShoot)
-                weaponParentController.HandlePlayerInputs(shootInput);
-            
+            if (playerManagerController && enableShoot)
+            { playerManagerController.HandlePlayerInputs(shootInput); }
             
             if (multiHookController && enableMultiHook)
             {

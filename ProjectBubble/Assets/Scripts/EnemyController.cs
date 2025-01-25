@@ -7,6 +7,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float aggressionRange = 1000f;
     private GameObject target;
 
+
+    public void HasBeenKilled()
+    {
+        Destroy(gameObject);
+    }
     private void Update()
     {
         FindTarget();
@@ -41,4 +46,6 @@ public class EnemyController : MonoBehaviour
         if (!target) { return; }
         navAgentComponent.destination = target.transform.position;
     }
+
+ 
 }
