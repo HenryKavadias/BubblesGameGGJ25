@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7658964023484991266}
   - component: {fileID: 905400308433239696}
   - component: {fileID: 2961183096817424000}
-  - component: {fileID: 3324038448606427510}
+  - component: {fileID: 6102094493248559026}
   m_Layer: 8
   m_Name: MentosProjectile
   m_TagString: Projectile
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 147384324973615031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.042444, y: -1.0341389, z: -1.7486191}
+  m_LocalPosition: {x: 0.98601997, y: 0.4976877, z: -3.4003863}
   m_LocalScale: {x: 0.22218, y: 0.11109, z: 0.22218}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,11 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f72d512fd3f42d45a4f715f051c1d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 0}
   BulletLife: 15
-  damageMin: 0
-  damageMax: 0
+  damageMin: 2
+  damageMax: 5
   DamagePowerUpMultiplier: 1
+  Collisions:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!33 &7658964023484991266
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -127,7 +129,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3324038448606427510
+--- !u!54 &6102094493248559026
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,9 +137,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147384324973615031}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

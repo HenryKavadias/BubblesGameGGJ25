@@ -70,16 +70,17 @@ public abstract class WeaponParent : MonoBehaviour
    
    protected virtual void ShootProjectile(GameObject prefab)
    {
-      Instantiate(prefab, shootPointRef.position, fpsCam.transform.rotation);
+      GameObject a = Instantiate(prefab, shootPointRef.position, fpsCam.transform.rotation);
 
             
-      ProjectileScript projectile = prefab.GetComponent<ProjectileScript>();
-      projectile.RB.linearVelocity = gunDir * ProjectileSpeed ;
+      ProjectileScript projectile = a.GetComponent<ProjectileScript>();
+      
+      Debug.Log(projectile.RB.linearVelocity);
       _projectilePrefab.transform.position = shootPointRef.position + (gunDir);
 
-      projectile.Weapon = transform.GetComponent<WeaponParent>();
       projectile.damageMin = _damageMin;
       projectile.damageMax = _damageMax;
+      projectile.RB.linearVelocity = gunDir * ProjectileSpeed;
    }
    
    private void OnCollisionExit(Collision other)

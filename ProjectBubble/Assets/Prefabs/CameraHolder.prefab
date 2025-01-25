@@ -96,7 +96,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -195,7 +195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5887114523726639524}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.061102092, y: 0.033093188, z: 0.002026967, w: 0.9975807}
+  m_LocalRotation: {x: 0, y: 0.033155207, z: 0, w: 0.9994502}
   m_LocalPosition: {x: 0.24, y: -0.23, z: 0.59}
   m_LocalScale: {x: 0.15000002, y: 0.15000002, z: 0.91503006}
   m_ConstrainProportionsScale: 1
@@ -203,7 +203,7 @@ Transform:
   - {fileID: 2029707442495688204}
   - {fileID: 8041882238822379583}
   m_Father: {fileID: 9047655326405257360}
-  m_LocalEulerAnglesHint: {x: -7.01, y: 3.8, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 3.8, z: 0}
 --- !u!33 &2692588232706716261
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -272,18 +272,18 @@ MonoBehaviour:
   _ammoUsage: 1
   _maxClipSize: 14
   _reloadCurrentTimerMax: 2
-  _damageMin: 0
-  _damageMax: 0
+  _damageMin: 2
+  _damageMax: 5
   _projectilePrefab: {fileID: 147384324973615031, guid: 377439930e258fb449ffe1726d887b85, type: 3}
   _spread: 0
-  FireRate: 1
+  FireRate: 6
   fpsCam: {fileID: 5345633548294945257}
-  ProjectileSpeed: 250
+  ProjectileSpeed: 55
   ShootPoint: {fileID: 2029707442495688204}
   AgainstWallShootPoint: {fileID: 8041882238822379583}
   CollisionCheck:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
   RaycastRange: 100000
 --- !u!1 &6488146108549067401
 GameObject:
