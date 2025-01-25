@@ -6,7 +6,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private NavMeshAgent navAgentComponent;
     [SerializeField] private float aggressionRange = 1000f;
     private GameObject target;
+    [SerializeField] private bool startWithArmor = false;
+    public bool ArmorIsUp { get; private set; } = false;
 
+    private void Start()
+    {
+        ArmorIsUp = startWithArmor;
+    }
+
+    public void DisableArmor()
+    { ArmorIsUp = false; }
 
     public void HasBeenKilled()
     {
@@ -17,14 +26,13 @@ public class EnemyController : MonoBehaviour
         FindTarget();
 
         SetDestination();
-        
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.gameObject.CompareTag("Projectile"))
-        { Debug.Log("Hit"); }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.transform.gameObject.CompareTag("Projectile"))
+    //    { Debug.Log("Hit"); }
+    //}
 
     private bool IsWithinDistance(Vector3 position, float distance)
     { return Vector3.Distance(transform.position, position) <= distance; }

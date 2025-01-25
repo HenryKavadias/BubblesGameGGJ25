@@ -5,12 +5,15 @@ using UnityEngine.Events;
 
 public class Shield : Health
 {
+    [SerializeField] private bool canRegen = true;
     [SerializeField] private float regenAmount;
     [SerializeField] private float regenRate;
     [SerializeField] private float regenDelay; // after being damaged
     [SerializeField] private float brokenDelay;
-
     [SerializeField] private float regenHangTime = 3f;
+
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private Collider colliderShell;
 
     private float rateCooldown = 0;
     private float delayCooldown = 0;
@@ -62,6 +65,9 @@ public class Shield : Health
 
         if (Current <= 0)
         {
+            colliderShell.enabled = false;
+            meshRenderer.enabled = false;
+
             SetState(shieldState.broken);
             Current = 0;
             StartCoroutine(SlowDie());
@@ -75,6 +81,8 @@ public class Shield : Health
 
     protected void Update()
     {
+        if (!canRegen) { return; }
+
         if (state == shieldState.idle || 
             state == shieldState.destroyed)
         { return; }

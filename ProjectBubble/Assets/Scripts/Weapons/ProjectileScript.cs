@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 public class ProjectileScript : Damager
@@ -10,7 +11,8 @@ public class ProjectileScript : Damager
     protected float BulletLifeTimer = 0;
     public float DamagePowerUpMultiplier = 1f;
     public LayerMask Collisions;
-    //protected virtual float RandomWeaponDamage => Random.Range(damageMin, damageMax);
+    public float armoredModifier = 1.5f;
+    public float unarmoredModifier = 0.5f;
     private Vector3 _previousPos;
 
     public UnityEvent OnHit;
@@ -45,20 +47,50 @@ public class ProjectileScript : Damager
     {
         if (KillProjectile(entity.GetComponent<Collider>()))
         {
+            DamageEntity(entity.transform.root.gameObject);
             OnHit?.Invoke();
-            //Destroy(gameObject);
         }
     }
     public void OnTriggerEnter(Collider other)
     {
         if (KillProjectile(other))
         {
-            Damageable damageable =
-            other.transform.root.GetComponent<Damageable>();
-
-            if (damageable)
-            { Damage(damageable); }
+            DamageEntity(other.transform.root.gameObject);
             OnHit?.Invoke();
+        }
+    }
+
+    private void DamageEntity(GameObject entity)
+    {
+        Damageable damageable =
+            entity.GetComponent<Damageable>();
+
+        if (damageable)
+        {
+            if (entity.TryGetComponent(out EnemyController ec))
+            {
+                bool arm = ec.ArmorIsUp;
+
+                if (arm) 
+                {
+                    Debug.Log("Armored");
+                    damageable.Damage(damage * armoredModifier);
+                }
+                else
+                {
+                    Debug.Log("unamored");
+                    damageable.Damage(damage * unarmoredModifier);
+                }
+            }
+            else
+            {
+                Debug.Log("normal");
+                damageable.Damage(damage);
+            }
+        }
+        else
+        {
+            Debug.Log("Has no damageable");
         }
     }
 
@@ -67,6 +99,11 @@ public class ProjectileScript : Damager
         return other.gameObject.layer == LayerMask.NameToLayer("Wall")
                || other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
                other.gameObject.layer == LayerMask.NameToLayer("Enemy");
+    }
+
+    private bool IsEnemy(Collider other)
+    {
+        return other.gameObject.layer == LayerMask.NameToLayer("Enemy");
     }
     protected Rigidbody _rb => GetComponent<Rigidbody>();
     public Rigidbody RB => _rb;

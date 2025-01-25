@@ -84,7 +84,7 @@ public abstract class WeaponParent : MonoBehaviour
             
       ProjectileScript projectile = atk.GetComponent<ProjectileScript>();
       
-      Debug.Log(projectile.RB.linearVelocity);
+      //Debug.Log(projectile.RB.linearVelocity);
       _projectilePrefab.transform.position = shootPointRef.position + (gunDir);
 
       projectile.RB.linearVelocity = gunDir * ProjectileSpeed;
