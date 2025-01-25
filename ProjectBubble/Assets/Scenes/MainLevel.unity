@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3223419209518885394, guid: bedbf370e566cda4fb70f79197b78f88, type: 3}
+      propertyPath: m_TagString
+      value: Soda
+      objectReference: {fileID: 0}
     - target: {fileID: 3437991277289377863, guid: bedbf370e566cda4fb70f79197b78f88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.06
@@ -789,6 +793,10 @@ PrefabInstance:
     - target: {fileID: 6465583790057064673, guid: 53adcbf1e6dce204db6a7b1436751ce9, type: 3}
       propertyPath: m_Name
       value: AudioSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466780428022179953, guid: 53adcbf1e6dce204db6a7b1436751ce9, type: 3}
+      propertyPath: musicTracks.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

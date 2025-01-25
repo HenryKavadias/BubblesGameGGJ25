@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PlayerManager : MonoBehaviour
 {
@@ -6,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject gunHolder;
     private int currentWeapon = 0;
     private InputDetector swapWeaponInput;
+    
+    public UnityEvent OnSwap;
 
     public void AssignCameraToWeapon(GameObject camera)
     {

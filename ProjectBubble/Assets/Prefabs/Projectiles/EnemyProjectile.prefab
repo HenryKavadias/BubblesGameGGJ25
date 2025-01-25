@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6102094493248559026}
   - component: {fileID: 5678838964798885925}
   m_Layer: 8
-  m_Name: MentosProjectile
+  m_Name: EnemyProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   DamagePowerUpMultiplier: 1
   Collisions:
     serializedVersion: 2
-    m_Bits: 960
+    m_Bits: 449
   armoredModifier: 0.5
   unarmoredModifier: 1.5
   OnHit:

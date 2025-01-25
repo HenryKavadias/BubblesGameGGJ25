@@ -73,18 +73,18 @@ public class ProjectileScript : Damager
 
                 if (arm) 
                 {
-                    Debug.Log("Armored");
+                    //Debug.Log("Armored");
                     damageable.Damage(damage * armoredModifier);
                 }
                 else
                 {
-                    Debug.Log("unamored");
+                    //Debug.Log("unamored");
                     damageable.Damage(damage * unarmoredModifier);
                 }
             }
             else
             {
-                Debug.Log("normal");
+                //Debug.Log("normal");
                 damageable.Damage(damage);
             }
         }
@@ -98,12 +98,8 @@ public class ProjectileScript : Damager
     {
         return other.gameObject.layer == LayerMask.NameToLayer("Wall")
                || other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
-               other.gameObject.layer == LayerMask.NameToLayer("Enemy");
-    }
-
-    private bool IsEnemy(Collider other)
-    {
-        return other.gameObject.layer == LayerMask.NameToLayer("Enemy");
+               other.gameObject.layer == LayerMask.NameToLayer("Enemy") ||
+               other.gameObject.layer == LayerMask.NameToLayer("Player");
     }
     protected Rigidbody _rb => GetComponent<Rigidbody>();
     public Rigidbody RB => _rb;

@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bacfea70b95d5f488723582f35dbb7d, type: 3}
-  m_Name: PlayerInputReader
+  m_Script: {fileID: 11500000, guid: f77cb1197560c284abbd04b33366fd54, type: 3}
+  m_Name: DefaultMusic
   m_EditorClassIdentifier: 
-  mouseSensitivityX: 60
-  mouseSensitivityY: 60
+  title: 
+  volumeScalar: 1
+  randomizePitch: 0
+  pitch: 1
+  pitchRange: 0
+  audioFile: {fileID: 0}
