@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - GameAudio
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - UI
   - Ground
   - Wall
-  - 
-  - 
+  - Projectile
+  - Enemy
   - 
   - 
   - 
