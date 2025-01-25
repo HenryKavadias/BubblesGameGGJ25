@@ -1,12 +1,31 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Analytics;
 
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent navAgentComponent;
     [SerializeField] private float aggressionRange = 1000f;
     private GameObject target;
+    [SerializeField] private bool startWithArmor = false;
+    [SerializeField] private GameObject meleeAttack;
+    [SerializeField] private GameObject rangedAttack;
+    [SerializeField] private Transform attackSpawn;
 
+    [SerializeField] private float rangedProjectileSpeed = 5;
+
+    [SerializeField] private float attackSpeed = 2;
+    private float attackCooldown;
+
+    public bool ArmorIsUp { get; private set; } = false;
+
+    private void Start()
+    {
+        ArmorIsUp = startWithArmor;
+    }
+
+    public void DisableArmor()
+    { ArmorIsUp = false; }
 
     public void HasBeenKilled()
     {
@@ -17,13 +36,61 @@ public class EnemyController : MonoBehaviour
         FindTarget();
 
         SetDestination();
-        
+
+        AttackBehavour();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void AttackBehavour()
     {
-        if (collision.transform.gameObject.CompareTag("Projectile"))
-        { Debug.Log("Hit"); }
+        if (!target) { return; }
+
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+            return;
+        }
+
+        if (Vector3.Distance(transform.position, 
+            target.transform.position) <= navAgentComponent.stoppingDistance) 
+        {
+            DoMeleeAttack();
+        }
+        else
+        {
+            DoRangedAttack();
+        }
+
+        attackCooldown = attackSpeed;
+    }
+
+    private void DoRangedAttack()
+    {
+        if (!rangedAttack) { return; }
+
+        PoolObject atk;
+
+        if (rangedAttack.TryGetComponent(out PoolObject pref))
+        {
+            atk = PoolManager.Spawn(pref, attackSpawn.position, 
+                Quaternion.LookRotation(target.transform.position));
+
+            ProjectileScript projectile = atk.GetComponent<ProjectileScript>();
+
+            projectile.RB.linearVelocity = attackSpawn.forward * rangedProjectileSpeed;
+        }
+    }
+
+    private void DoMeleeAttack()
+    {
+        if (!meleeAttack) { return; }
+
+        PoolObject atk;
+
+        if (meleeAttack.TryGetComponent(out PoolObject pref))
+        {
+            atk = PoolManager.Spawn(pref, attackSpawn.position,
+                Quaternion.identity);
+        }
     }
 
     private bool IsWithinDistance(Vector3 position, float distance)

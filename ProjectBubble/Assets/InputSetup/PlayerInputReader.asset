@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bacfea70b95d5f488723582f35dbb7d, type: 3}
   m_Name: PlayerInputReader
   m_EditorClassIdentifier: 
-  mouseSensitivityX: 100
-  mouseSensitivityY: 100
+  mouseSensitivityX: 60
+  mouseSensitivityY: 60

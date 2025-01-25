@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 147384324973615031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2497716, y: 0.47689056, z: -18.194351}
+  m_LocalPosition: {x: -10.455114, y: 0.74666935, z: -15.983433}
   m_LocalScale: {x: 0.22218, y: 0.11109, z: 0.22218}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,6 +55,8 @@ MonoBehaviour:
   Collisions:
     serializedVersion: 2
     m_Bits: 960
+  armoredModifier: 0.5
+  unarmoredModifier: 1.5
   OnHit:
     m_PersistentCalls:
       m_Calls:
@@ -167,7 +169,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!64 &5678838964798885925
 MeshCollider:
   m_ObjectHideFlags: 0

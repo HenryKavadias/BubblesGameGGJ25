@@ -9,8 +9,8 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField, Required] private Progressive _health;   // Health object (used to manage health amount)
     [SerializeField] private Gradient _healthgradient;    // Used to determine the Colour of the health bar
-    private Image _healthfillImage;      // Image for the health bar
-    private TextMeshProUGUI _healthTextDisplay;    // Text for the health
+    [SerializeField] private Image _healthfillImage;      // Image for the health bar
+    [SerializeField] private TextMeshProUGUI _healthTextDisplay;    // Text for the health
 
     [SerializeField] private Progressive _shield;
     [SerializeField] private Gradient _shieldgradient;

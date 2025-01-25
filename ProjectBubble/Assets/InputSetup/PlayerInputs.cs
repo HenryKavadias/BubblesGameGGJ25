@@ -143,6 +143,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Swap"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""153148c9-9ac9-4fd1-98d0-3987dc9832eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -332,6 +341,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53aa399e-7056-45d5-a634-40e59d2af6a4"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -370,11 +390,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_FPControls_Shoot = m_FPControls.FindAction("Shoot", throwIfNotFound: true);
         m_FPControls_Reload = m_FPControls.FindAction("Reload", throwIfNotFound: true);
         m_FPControls_Interact = m_FPControls.FindAction("Interact", throwIfNotFound: true);
+        m_FPControls_Swap = m_FPControls.FindAction("Swap", throwIfNotFound: true);
     }
 
     ~@PlayerInputs()
     {
-        //UnityEngine.Debug.Assert(!m_FPControls.enabled, "This will cause a leak and performance issues, PlayerInputs.FPControls.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_FPControls.enabled, "This will cause a leak and performance issues, PlayerInputs.FPControls.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -449,6 +470,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_FPControls_Shoot;
     private readonly InputAction m_FPControls_Reload;
     private readonly InputAction m_FPControls_Interact;
+    private readonly InputAction m_FPControls_Swap;
     public struct FPControlsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -466,6 +488,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_FPControls_Shoot;
         public InputAction @Reload => m_Wrapper.m_FPControls_Reload;
         public InputAction @Interact => m_Wrapper.m_FPControls_Interact;
+        public InputAction @Swap => m_Wrapper.m_FPControls_Swap;
         public InputActionMap Get() { return m_Wrapper.m_FPControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -514,6 +537,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Swap.started += instance.OnSwap;
+            @Swap.performed += instance.OnSwap;
+            @Swap.canceled += instance.OnSwap;
         }
 
         private void UnregisterCallbacks(IFPControlsActions instance)
@@ -557,6 +583,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Swap.started -= instance.OnSwap;
+            @Swap.performed -= instance.OnSwap;
+            @Swap.canceled -= instance.OnSwap;
         }
 
         public void RemoveCallbacks(IFPControlsActions instance)
@@ -598,5 +627,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnSwap(InputAction.CallbackContext context);
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - GameAudio
   - Projectile
   - Enemy
+  - Armor
+  - Soda
   layers:
   - Default
   - TransparentFX
