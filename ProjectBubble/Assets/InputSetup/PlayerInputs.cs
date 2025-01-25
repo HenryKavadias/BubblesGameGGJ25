@@ -395,7 +395,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
 
     ~@PlayerInputs()
     {
-        //UnityEngine.Debug.Assert(!m_FPControls.enabled, "This will cause a leak and performance issues, PlayerInputs.FPControls.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_FPControls.enabled, "This will cause a leak and performance issues, PlayerInputs.FPControls.Disable() has not been called.");
     }
 
     public void Dispose()
