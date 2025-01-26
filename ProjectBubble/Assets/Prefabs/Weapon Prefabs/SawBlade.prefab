@@ -143,7 +143,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 44265450784638070, guid: 1c5bb61041313884b84db8131ec5738c, type: 3}
   _spread: 0
   FireRate: 1
-  ProjectileSpeed: 250
+  ProjectileSpeed: 100
   ShootPoint: {fileID: 8749935642376798363}
   AgainstWallShootPoint: {fileID: 783201339861499560}
   CollisionCheck:
