@@ -23,7 +23,15 @@ public class EnemyController : MonoBehaviour
     public UnityEvent OnRangedAttack;
 
     public bool ArmorIsUp { get; private set; } = false;
-
+    public Transform VFX;
+    [SerializeField] private Transform VFXPoint;
+    public void SpawnVFX()
+    {
+        Vector3 pos = transform.position;
+        pos.y -=1;
+        Instantiate(VFX, VFXPoint.position, transform.rotation);
+    }
+    
     private void Start()
     {
         ArmorIsUp = startWithArmor;
