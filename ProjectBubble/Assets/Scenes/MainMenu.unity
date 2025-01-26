@@ -643,8 +643,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainLevel:
-    _sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
-    _sceneName: SampleScene
+    _sceneAsset: {fileID: 102900000, guid: bc3856e7ae607c049a7af7ec2a6fcbb5, type: 3}
+    _sceneName: MainLevel
 --- !u!1 &1078033279
 GameObject:
   m_ObjectHideFlags: 0
