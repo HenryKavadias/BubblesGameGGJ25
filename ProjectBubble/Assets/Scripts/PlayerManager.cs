@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerManager : MonoBehaviour
@@ -18,6 +19,11 @@ public class PlayerManager : MonoBehaviour
             weaponParentController[i].fpsCam = camera;
         }
         
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void RotateGunHolder(float x, float y)
