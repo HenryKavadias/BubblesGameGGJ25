@@ -149,6 +149,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 640
   RaycastRange: 100000
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -433150277362565718}
+        m_TargetAssemblyTypeName: SFXController, Assembly-CSharp
+        m_MethodName: RandomSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-433150277362565718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnSpawn: 0
-  sfxNames: []
+  sfxNames:
+  - Sawblade1
+  - Sawblade2
+  - Sawblade3
   audioSource: {fileID: 2331101713101513951}
 --- !u!82 &2331101713101513951
 AudioSource:
@@ -176,7 +194,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

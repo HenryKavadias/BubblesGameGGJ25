@@ -54,11 +54,13 @@ public class PlayerManager : MonoBehaviour
                 weaponParentController[currentWeapon].gameObject.SetActive(true);
 
             }
+
+            OnSwap?.Invoke();
         }
     }
 
     public void OnDestroy()
     {
-       Destroy(gameObject);
+       Destroy(gameObject, 0.75f);
     }
 }
