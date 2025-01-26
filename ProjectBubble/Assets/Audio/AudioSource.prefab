@@ -262,6 +262,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54e077b0bcb0d5e4b82981f9c7646807, type: 2}
   - {fileID: 11400000, guid: c8de70c04b05e5946bf9b4dd66c17ef6, type: 2}
   - {fileID: 11400000, guid: e42ae6fb94733874c8f0f05b66f67120, type: 2}
+  - {fileID: 11400000, guid: 5a5e7e0d663138e49ad086088c5a62f0, type: 2}
   ambienceTracks:
   - {fileID: 11400000, guid: 5a5e7e0d663138e49ad086088c5a62f0, type: 2}
   musicAudioSource: {fileID: 2650391501774829183}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77cb1197560c284abbd04b33366fd54, type: 3}
   m_Name: MainAmbience
   m_EditorClassIdentifier: 
-  title: Main
+  title: MainAmbience
   volumeScalar: 1
   randomizePitch: 0
   pitch: 1
