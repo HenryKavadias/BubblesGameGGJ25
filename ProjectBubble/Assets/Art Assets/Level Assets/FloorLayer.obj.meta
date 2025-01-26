@@ -3,7 +3,37 @@ guid: ded00c73410af93428a9d77fcecf334a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks
+    second: {fileID: 2100000, guid: 08f5069678f689143ac81bbc951c7886, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceiling
+    second: {fileID: 2100000, guid: e007b50b8deb7414f86794b5fdbf9bc8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 06dc279748e2af843bff3e8e85cec73f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SuperMarketFloo
+    second: {fileID: 2100000, guid: 4d9820d7b4c923f4fa3ea93497a16b62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Supermarket_Flo
+    second: {fileID: 2100000, guid: c135d3aa516c4c84a8b1e845a1a7dd9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black
+    second: {fileID: 2100000, guid: 3ddcd89b8a39999458ec9dffec95d3c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
