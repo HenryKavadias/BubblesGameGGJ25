@@ -90,7 +90,7 @@ public class ProjectileScript : Damager
         }
         else
         {
-            Debug.Log("Has no damageable");
+            //Debug.Log("Has no damageable");
         }
     }
 
