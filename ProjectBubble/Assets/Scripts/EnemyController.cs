@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.Analytics;
 
 public class EnemyController : MonoBehaviour
@@ -11,11 +12,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private GameObject meleeAttack;
     [SerializeField] private GameObject rangedAttack;
     [SerializeField] private Transform attackSpawn;
+    [SerializeField, Required] private GameObject bodyVisaul;
 
     [SerializeField] private float rangedProjectileSpeed = 5;
 
     [SerializeField] private float attackSpeed = 2;
     private float attackCooldown;
+
+    public UnityEvent OnMeleeAttack;
+    public UnityEvent OnRangedAttack;
 
     public bool ArmorIsUp { get; private set; } = false;
 
@@ -29,7 +34,8 @@ public class EnemyController : MonoBehaviour
 
     public void HasBeenKilled()
     {
-        Destroy(gameObject);
+        bodyVisaul.SetActive(false);
+        Destroy(gameObject, 1f);
     }
     private void Update()
     {
@@ -77,6 +83,8 @@ public class EnemyController : MonoBehaviour
             ProjectileScript projectile = atk.GetComponent<ProjectileScript>();
 
             projectile.RB.linearVelocity = attackSpawn.forward * rangedProjectileSpeed;
+
+            OnRangedAttack?.Invoke();
         }
     }
 
@@ -90,6 +98,9 @@ public class EnemyController : MonoBehaviour
         {
             atk = PoolManager.Spawn(pref, attackSpawn.position,
                 Quaternion.identity);
+
+
+            OnMeleeAttack?.Invoke();
         }
     }
 
@@ -104,6 +115,7 @@ public class EnemyController : MonoBehaviour
 
         if (player != null && IsWithinDistance(player.transform.position, aggressionRange))
         {
+            attackCooldown = attackSpeed;
             target = player;
         }
     }
