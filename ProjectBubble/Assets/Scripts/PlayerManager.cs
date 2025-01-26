@@ -67,6 +67,6 @@ public class PlayerManager : MonoBehaviour
 
     public void OnDestroy()
     {
-       Destroy(gameObject, 0.75f);
+       //Destroy(gameObject, 0.75f);
     }
 }

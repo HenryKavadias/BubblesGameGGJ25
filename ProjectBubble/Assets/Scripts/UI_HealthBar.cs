@@ -25,6 +25,7 @@ public class UI_HealthBar : MonoBehaviour
 
     private void FaceBGColourGradient(Color color)
     {
+        if (!FaceBGImage) return;
         FaceBGImage.color = color;
     }
 
