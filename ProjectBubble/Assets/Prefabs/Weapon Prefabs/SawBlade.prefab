@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1113566507058686961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0.12, z: -0.507}
+  m_LocalPosition: {x: 0.41, y: 0.143, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60,15 +60,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3816738313122807603}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.033155207, z: 0, w: 0.9994502}
-  m_LocalPosition: {x: 0.24, y: -0.23, z: 0.59}
-  m_LocalScale: {x: 0.15000002, y: 0.15000002, z: 0.91503006}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8749935642376798363}
   - {fileID: 783201339861499560}
+  - {fileID: 7617784059386172852}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 3.8, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4618725687131077874
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84,7 +85,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3816738313122807603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -149,6 +150,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 640
   RaycastRange: 100000
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -433150277362565718}
+        m_TargetAssemblyTypeName: SFXController, Assembly-CSharp
+        m_MethodName: RandomSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-433150277362565718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnSpawn: 0
-  sfxNames: []
+  sfxNames:
+  - Sawblade1
+  - Sawblade2
+  - Sawblade3
   audioSource: {fileID: 2331101713101513951}
 --- !u!82 &2331101713101513951
 AudioSource:
@@ -176,7 +195,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -292,3 +311,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1204022291692193399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7943636437698998879
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1204022291692193399}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+      propertyPath: m_Name
+      value: CrossSawGun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+--- !u!4 &7617784059386172852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f67f222781bc16c40ac383c85b42c923, type: 3}
+  m_PrefabInstance: {fileID: 7943636437698998879}
+  m_PrefabAsset: {fileID: 0}

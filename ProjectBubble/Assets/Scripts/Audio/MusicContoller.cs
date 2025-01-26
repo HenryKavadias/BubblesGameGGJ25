@@ -7,6 +7,8 @@ public class MusicContoller : MonoBehaviour
 {
     private GameObject objectMusic = null;
 
+    public bool playOnStart = true;
+    public bool modifyTrack = false;
     public string track = string.Empty;
     public float startOfTrack = 0f;
     public float endOfTrack = 0f;
@@ -34,8 +36,8 @@ public class MusicContoller : MonoBehaviour
 
                 if (track != string.Empty && track != audioManager.currentMusicTrack)
                 {
-                    audioManager.BeginMusicTrack(
-                        track, loopTrack, startOfTrack, endOfTrack, initialDelay);
+                    if (!playOnStart) { return; }
+                    StartTrack();
                 }
             }
             else
@@ -43,6 +45,20 @@ public class MusicContoller : MonoBehaviour
                 audioSource.volume = defaultMusicVolume;
             }
         }
+    }
+
+    public void StartTrack()
+    {
+        if (modifyTrack)
+        {
+            audioManager.BeginMusicTrack(
+                        track, loopTrack, startOfTrack,
+                        endOfTrack, initialDelay);
+
+            return;
+        }
+        audioManager.BeginMusicTrack(
+                        track, loopTrack);
     }
 
     // Stops the current music track

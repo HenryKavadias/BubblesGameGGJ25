@@ -15,7 +15,7 @@ public class TriggerDamager : Damager
         {
             damageable.Damage(damage);
         }
-        Debug.Log("hit");
+        //Debug.Log("hit");
         onContact.Invoke();
     }
 }

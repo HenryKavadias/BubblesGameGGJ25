@@ -1,0 +1,18 @@
+newmtl Bricks
+map_Kd 
+
+newmtl Ceiling
+map_Kd 
+
+newmtl Metal Texture
+map_Kd 
+
+newmtl SuperMarketFloo
+map_Kd 
+
+newmtl Supermarket_Flo
+map_Kd 
+
+newmtl black
+map_Kd 
+

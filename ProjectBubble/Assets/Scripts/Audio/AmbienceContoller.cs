@@ -7,6 +7,8 @@ public class AmbienceController : MonoBehaviour
 {
     private GameObject objectAmbience = null;
 
+    public bool playOnStart = true;
+    public bool modifyTrack = false;
     public string track = string.Empty;
     public float startOfTrack = 0f;
     public float endOfTrack = 0f;
@@ -34,6 +36,7 @@ public class AmbienceController : MonoBehaviour
 
                 if (track != string.Empty && track != audioManager.currentAmbience)
                 {
+                    if (!playOnStart) { return; }
                     audioManager.BeginAmbience(
                         track, loopTrack, startOfTrack, endOfTrack, initialDelay);
                 }
@@ -43,6 +46,18 @@ public class AmbienceController : MonoBehaviour
                 audioSource.volume = defaultAmbienceVolume;
             }
         }
+    }
+
+    public void StartTrack()
+    {
+        if (modifyTrack) 
+        {
+            audioManager.BeginAmbience(
+                        track, loopTrack, startOfTrack, endOfTrack, initialDelay);
+            return;
+        }
+
+        audioManager.BeginAmbience(track, loopTrack);
     }
 
     // Stops the current ambience track

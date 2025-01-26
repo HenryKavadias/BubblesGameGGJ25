@@ -77,7 +77,7 @@ public abstract class WeaponParent : MonoBehaviour
             ProjectileScript projectile = atk.GetComponent<ProjectileScript>();
 
             projectile.RB.linearVelocity = gunDir * ProjectileSpeed;
-        }
+       }
 
     }
    
