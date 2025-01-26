@@ -1,0 +1,23 @@
+newmtl Bricks
+map_Kd 
+
+newmtl Conveyer Belt
+map_Kd 
+
+newmtl Keep Out Sign
+map_Kd 
+
+newmtl Metal Texture
+map_Kd 
+
+newmtl Wooden Texture
+map_Kd 
+
+newmtl __TB_empty
+
+newmtl black
+map_Kd 
+
+newmtl city4_5
+map_Kd 
+
