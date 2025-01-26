@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class HealthBar : MonoBehaviour
 {
@@ -46,7 +45,8 @@ public class HealthBar : MonoBehaviour
 
     public void Start()
     {
-        if (_healthfillImage && _healthTextDisplay)
+        _healthfillImage = EventManager_UI.ReturnHealthBarElement();
+        if (_healthfillImage)// && _healthTextDisplay)
         {
             _healthfillImage.color = _healthgradient.Evaluate(_health.Ratio);
             UpdateHealthBar();
@@ -83,7 +83,8 @@ public class HealthBar : MonoBehaviour
             _healthfillImage.fillAmount = _health.Ratio;
 
             _healthfillImage.color = _healthgradient.Evaluate(_health.Ratio);
-
+            EventManager_UI.GetGradientColour(_healthgradient.Evaluate(_health.Ratio));
+            EventManager_UI.FaceUIExpression(_health.Ratio);
             //_fillImage.fillAmount =
             //Mathf.MoveTowards(_fillImage.fillAmount,
             //_health.Ratio, reduceSpeed * Time.deltaTime);
