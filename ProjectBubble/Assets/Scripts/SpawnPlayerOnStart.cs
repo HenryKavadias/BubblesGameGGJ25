@@ -9,6 +9,7 @@ public class SpawnPlayerOnStart : MonoBehaviour
 
     private void Start()
     {
+        PoolManager.ClearPools();   
         if (!cameraHolder || !playerCharacter) { return; }
 
         GameObject ch = Instantiate(cameraHolder, spawnPosition.position, transform.rotation);
