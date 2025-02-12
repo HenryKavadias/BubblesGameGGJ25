@@ -287,7 +287,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 9c8e1c49596902b4f9b2c0621c489bc7, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b0fe57c2673ecf54fa058d46f87889ee, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &423279088
 Transform:
@@ -841,9 +841,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2388829727878654105, guid: 30eb25040058c33479e57df859997dc4, type: 3}
+      propertyPath: activeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4304335236676497908, guid: 30eb25040058c33479e57df859997dc4, type: 3}
       propertyPath: m_Name
       value: MusicTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648606981312868766, guid: 30eb25040058c33479e57df859997dc4, type: 3}
+      propertyPath: playOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648606981312868766, guid: 30eb25040058c33479e57df859997dc4, type: 3}
+      propertyPath: defaultMusicVolume
+      value: 0.157
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

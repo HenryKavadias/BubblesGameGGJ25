@@ -9,10 +9,11 @@ public class SpawnPlayerOnStart : MonoBehaviour
 
     private void Start()
     {
+        PoolManager.ClearPools();   
         if (!cameraHolder || !playerCharacter) { return; }
 
-        GameObject ch = Instantiate(cameraHolder, spawnPosition.position, Quaternion.identity);
-        GameObject pc = Instantiate(playerCharacter, spawnPosition.position, Quaternion.identity);
+        GameObject ch = Instantiate(cameraHolder, spawnPosition.position, transform.rotation);
+        GameObject pc = Instantiate(playerCharacter, spawnPosition.position, transform.rotation);
 
         if (ch && pc && ch.TryGetComponent(out InputHandler ih))
         {

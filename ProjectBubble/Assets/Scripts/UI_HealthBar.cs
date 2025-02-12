@@ -25,6 +25,7 @@ public class UI_HealthBar : MonoBehaviour
 
     private void FaceBGColourGradient(Color color)
     {
+        if (!FaceBGImage) return;
         FaceBGImage.color = color;
     }
 
@@ -32,9 +33,9 @@ public class UI_HealthBar : MonoBehaviour
     {
         if (value >= 0.75f)
             FaceImage.sprite = FaceList[0];
-        else if (value < 0.75f && value >= 2.5f)
+        else if (value < 0.75f && value >= 0.5f)
             FaceImage.sprite = FaceList[1];
-        else if (value < 50f && value >= 2.5f)
+        else if (value < 0.5f && value >= 0.25f)
             FaceImage.sprite = FaceList[2];
         else
             FaceImage.sprite = FaceList[3];

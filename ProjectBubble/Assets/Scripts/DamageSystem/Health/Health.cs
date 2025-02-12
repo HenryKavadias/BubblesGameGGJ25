@@ -18,7 +18,6 @@ public interface IHealable
 public class Health : Progressive //, IDamageable, IHealable
 {
     //public UnityEvent onHealed;
-
     public UnityEvent onDamaged;
     
     public UnityEvent onDie;
@@ -48,6 +47,8 @@ public class Health : Progressive //, IDamageable, IHealable
         }
     }
 
+
+    
     /*
     // unnecessary
     //public override void Add(float amount)
