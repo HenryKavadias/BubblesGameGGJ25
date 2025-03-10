@@ -11,4 +11,5 @@ public class EventManager_UI : MonoBehaviour
     public static void FaceUIExpression(float face)=>FaceIDValue?.Invoke(face);
     public static event Action<Color> GetColourVal;
     public static void GetGradientColour(Color a)=>GetColourVal?.Invoke(a);
+    
 }

@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
+
 public class EnemyController : MonoBehaviour
 {
     private static readonly int Moving = Animator.StringToHash("Moving");
@@ -29,7 +31,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform VFXPoint;
     [SerializeField] private float _gibbingTimerMax = 1.25f;
     [SerializeField] private float _explosionTargetMax = 1;
-
+    [HideInInspector]public EnemyEncounterController Director;
     private float _explosionTarget= 0;
     public void SpawnVFX()
     {
@@ -66,6 +68,8 @@ public class EnemyController : MonoBehaviour
 
     private void DestroyEnemy()
     {
+        if (Director)
+            Director.EnemyPerished(this);
         Destroy(gameObject);
     }
     private void Update()

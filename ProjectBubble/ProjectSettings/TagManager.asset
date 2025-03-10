@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Armor
   - Soda
+  - Props
+  - ParticlesFX
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Projectile
   - Enemy
   - Player
-  - 
+  - NoCollisionPhysics
   - 
   - 
   - 
