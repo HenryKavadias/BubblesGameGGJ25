@@ -1,0 +1,435 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Material
+  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _ALPHATEST_ON
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
+  - SHADOWCASTER
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTexture:
+        m_Texture: {fileID: 2800000, guid: b0f01f5daea504640b09b01461b64751, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: fb5679ffa3fd8e443bec403e3d6ffc04, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DebrisMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DitherPattern:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DitherPatternScreen:
+        m_Texture: {fileID: 2800000, guid: e24b760894dce544a9218e4afba30047, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ErosionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GradientMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LUTColor:
+        m_Texture: {fileID: 11700000, guid: ebddfb49aa678454d9875ea9f8c3e8e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: fb5679ffa3fd8e443bec403e3d6ffc04, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PaintMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadowGradientMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AddOffsetDither: 0
+    - _AddPrecomputedVelocity: 0
+    - _AlphaClip: 1
+    - _AlphaDistance: 0
+    - _AlphaDistanceBias: 0
+    - _AlphaDither: 0
+    - _AlphaFilter: 0
+    - _AlphaFresnel: 0
+    - _AlphaTiling: 1
+    - _AlphaToMask: 0
+    - _AmbientBoost: 1
+    - _AttenuationPower: 1
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 0
+    - _BlendOp: 0
+    - _BlurAmount: 1
+    - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _CastShadows: 1
+    - _ClipThreshold: 0.815
+    - _ColorBlend: 0.5
+    - _ColorBoost: 1
+    - _ColorFilter: 0
+    - _ColorMode: 0
+    - _ColorPower: 1
+    - _ColorScreenDither: 0
+    - _ColorTiling: 1
+    - _Cull: 0
+    - _Cutoff: 0.641
+    - _DebrisDither: 0
+    - _DebrisDitherFilter: 0
+    - _DebrisDitherTiling: 1
+    - _DebrisErosion: 0
+    - _DebrisFilter: 0
+    - _DebrisOpacity: 0
+    - _DebrisSteps: 0
+    - _DebrisTiling: 1
+    - _DetailFilter: 0
+    - _DetailNormalMapScale: 1
+    - _DetailStrength: 0
+    - _DetailTiling: 1
+    - _DiffuseFill: 0
+    - _DiffusePower: 1
+    - _DiffuseSteps: 0
+    - _DistanceBias: 5
+    - _Distortion: 0
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionFresnel: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0.1
+    - _DitherAmount: 0
+    - _DitherBlur: 0
+    - _DitherDirection: 0
+    - _DitherDistance: 100
+    - _DitherFilter: 0
+    - _DitherTiling: 1
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
+    - _EdgeScale: 0
+    - _EmbossAmount: 1
+    - _EmbossDiffusion: 1
+    - _EmissionEnabled: 0
+    - _ErosionAmount: 1
+    - _ErosionFilter: 0
+    - _ErosionTiling: 1
+    - _FlickerRate: 12
+    - _FlipbookBlending: 0
+    - _FlipbookMode: 0
+    - _FogDensity: 1
+    - _FogDistance: 400
+    - _FogOffset: 0
+    - _FresnelFadeRef: 0
+    - _FresnelFadeSpec: 0
+    - _FresnelPowerAlpha: 1
+    - _GIDither: 0
+    - _GIDitherFilter: 1
+    - _GIDitherTiling: 1
+    - _GIErosion: 0
+    - _GIPower: 1
+    - _GISaturation: 1
+    - _GISteps: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GlowDirection: 0
+    - _GlowDistance: 800
+    - _GlowFilter: 0
+    - _GlowTiling: 1
+    - _GradientBlend: 0.5
+    - _GradientFilter: 0
+    - _GradientFilterOut: 0
+    - _GradientLOD: 0
+    - _GradientOpacity: 0
+    - _GradientOpacityOut: 0
+    - _HeightFilter: 0
+    - _HeightTiling: 1
+    - _HighlightStep: 0
+    - _Hue: 0
+    - _JPS: 12
+    - _JitterDither: 0
+    - _JitterErosion: 0
+    - _JitterScreen: 0
+    - _LODMultiplier: 10
+    - _LUTFilter: 0
+    - _LUTFilterColor: 0
+    - _LUTOpacity: 0
+    - _LUTOpacityColor: 0
+    - _LightAttenuation: 2
+    - _LightingEnabled: 1
+    - _MaxDiffuse: 10
+    - _MaxTextureSize: 1024
+    - _Metallic: 0
+    - _MipBias: 2
+    - _MipDirection: 0.25
+    - _MipDistance: 4
+    - _MirrorAmount: 0
+    - _Mode: 3
+    - _NormalAmount: 0.5
+    - _NormalDirection: 0
+    - _NormalDistance: 800
+    - _NormalDistortion: 0
+    - _NormalDither: 0
+    - _NormalDitherFilter: 0
+    - _NormalDitherTiling: 1
+    - _NormalErosion: 0
+    - _NormalFilter: 0
+    - _NormalMapTiling: 1
+    - _NormalOcc: 0
+    - _NormalOffset: 0
+    - _NormalPowerMultiplier: 0
+    - _NormalScreenDither: 0
+    - _NormalSteps: 0
+    - _NormalStrength: 0
+    - _OccAmount: 1
+    - _OccDiffusion: 1
+    - _OccStepsOffset: 0
+    - _OcclusionStrength: 1
+    - _OffsetDither: 0
+    - _OutputBoost: 1
+    - _OverlayAmount: 1
+    - _PaintAmount: 0.5
+    - _PaintFilter: 0
+    - _PaintOpacity: 0
+    - _PaintTiling: 1
+    - _Parallax: 0.02
+    - _PixelOffset: 1
+    - _PostFX: 0
+    - _QuantizeNormals: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 0
+    - _RefDither: 0
+    - _RefFresnel: 0
+    - _RefLUT: 0
+    - _RefLUTFilter: 0
+    - _RefOcclusion: 0
+    - _RefPower: 1
+    - _SampleGI: 0
+    - _ScreenDither: 0
+    - _ScreenDitherDistance: 800
+    - _ScreenDitherFade: 4
+    - _ShadowBrightness: 0
+    - _ShadowDistance: 200
+    - _ShadowDither: 0
+    - _ShadowErosion: 0
+    - _ShadowGradient: 0
+    - _ShadowOcclusion: 0
+    - _ShadowRange: 0.75
+    - _ShadowResolution: 2048
+    - _ShadowTiling: 1
+    - _SharpenAmount: 0
+    - _SharpenRange: 0.5
+    - _SingleAlpha: 0
+    - _SingleColor: 0
+    - _SingleDebris: 0
+    - _SingleDither: 0
+    - _SingleErosion: 0
+    - _SingleGlow: 1
+    - _SinglePaint: 0
+    - _SingleScreen: 0
+    - _SingleSpec: 0
+    - _Smoothness: 0
+    - _SmoothnessTextureChannel: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
+    - _SpecAmount: 0.5
+    - _SpecColor: 0.5
+    - _SpecFilter: 0
+    - _SpecFresnel: 0
+    - _SpecHeight: 0
+    - _SpecOcclusion: 0
+    - _SpecSteps: 0
+    - _SpecularDither: 0
+    - _SpecularDitherTiling: 1
+    - _SpecularHighlights: 1
+    - _SrcBlend: 5
+    - _SrcBlendAlpha: 1
+    - _StepSize: 0.5
+    - _Surface: 1
+    - _SurfaceGradient: 0
+    - _Terminator: 1
+    - _TexelSnap_GI: 0
+    - _TexelSnap_Shadow: 0
+    - _TransparencyClip: 0
+    - _UVSec: 0
+    - _UseCamPos: 0
+    - _UseColorAlpha: 1
+    - _VCGI: 0
+    - _VertexAlpha: 1
+    - _VertexColor: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
+    m_Colors:
+    - _AlphaGlow: {r: 0, g: 0, b: 0, a: 0}
+    - _AlphaOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
+    - _BaseShade: {r: 0, g: 0, b: 0, a: 0}
+    - _BlueGlow: {r: 0, g: 0, b: 1, a: 0}
+    - _Brightness: {r: 0, g: 1, b: 0, a: 0}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _Contrast: {r: 0, g: 1, b: 0, a: 0}
+    - _Debris: {r: 0, g: 1, b: 0, a: 0}
+    - _DebrisColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    - _DebrisContrast: {r: 0, g: 1, b: 0, a: 0}
+    - _DebrisMetalness: {r: 0, g: 0, b: 0, a: 0}
+    - _DebrisOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _DebrisSpec: {r: 0, g: 0, b: 0, a: 0}
+    - _DetailOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffuseHue: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffuseSaturation: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffuseValue: {r: 0, g: 0, b: 0, a: 0}
+    - _DitherBrightness: {r: 0, g: 1, b: 0, a: 0}
+    - _EdgeShift: {r: 0, g: 0, b: 0, a: 0}
+    - _EmbossX: {r: 0, g: 0, b: 0, a: 0}
+    - _EmbossY: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
+    - _ErosionBrightness: {r: 0, g: 1, b: 0, a: 0}
+    - _Fog: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    - _GIShade: {r: 0, g: 0, b: 0, a: 0}
+    - _GlobalOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _GlobalTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Glow: {r: 0.4, g: 0.15, b: 0, a: 0}
+    - _GlowOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _GlowRange: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _GlowSteps: {r: 256, g: 256, b: 256, a: 256}
+    - _GlowTint: {r: 1, g: 1, b: 1, a: 0}
+    - _GreenGlow: {r: 0, g: 1, b: 0, a: 0}
+    - _HeightOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _HueRGB: {r: 0, g: 0, b: 0, a: 0}
+    - _HueXY: {r: 0, g: 0, b: 0, a: 0}
+    - _NearFogColor: {r: 0, g: 0, b: 0, a: 0}
+    - _NormalMapOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _NormalPower: {r: 1, g: 1, b: 1, a: 0}
+    - _OccColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Opacity: {r: 0, g: 1, b: 0, a: 0}
+    - _Paint: {r: 0, g: 1, b: 0, a: 0}
+    - _PaintColor: {r: 1, g: 1, b: 1, a: 0}
+    - _PaintMetalness: {r: 0, g: 0, b: 0, a: 0}
+    - _PaintOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _PaintSpec: {r: 0, g: 0, b: 0, a: 0}
+    - _QuantizationSteps: {r: 3, g: 3, b: 3, a: 0}
+    - _RGBAFlicker: {r: 0, g: 0, b: 0, a: 0}
+    - _RedGlow: {r: 1, g: 0, b: 0, a: 0}
+    - _RefColor: {r: 0, g: 0, b: 0, a: 0}
+    - _RefTint: {r: 1, g: 1, b: 1, a: 0}
+    - _Reflection: {r: 0, g: 0, b: 0, a: 0}
+    - _SaturationRGB: {r: 1, g: 1, b: 1, a: 0}
+    - _SaturationXY: {r: 1, g: 1, b: 0, a: 0}
+    - _ScreenBrightness: {r: 0, g: 1, b: 0, a: 0}
+    - _ShadowAttenuation: {r: 0, g: 1, b: 0, a: 0}
+    - _ShadowTint: {r: 1, g: 1, b: 1, a: 0}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecMetalness: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _Specularity: {r: 0, g: 1, b: 0, a: 0}
+    - _ValueRGB: {r: 1, g: 1, b: 1, a: 0}
+    - _VerticalFog: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &8081622663270994051
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9

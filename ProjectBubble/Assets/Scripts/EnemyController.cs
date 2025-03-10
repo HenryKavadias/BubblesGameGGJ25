@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
-using UnityEngine.Analytics;
-
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent navAgentComponent;
@@ -25,11 +23,19 @@ public class EnemyController : MonoBehaviour
     public bool ArmorIsUp { get; private set; } = false;
     public Transform VFX;
     [SerializeField] private Transform VFXPoint;
+    [SerializeField] private float _gibbingTimerMax = 1.25f;
+    [SerializeField] private float _explosionTargetMax = 1;
+
+    private float _explosionTarget= 0;
     public void SpawnVFX()
     {
         Vector3 pos = transform.position;
         pos.y -=1;
         Instantiate(VFX, VFXPoint.position, transform.rotation);
+        navAgentComponent.enabled = false;
+        target = null;
+        //bodyVisaul.SetActive(false);
+        Invoke("GibEnemy", _gibbingTimerMax);
     }
     
     private void Start()
@@ -42,8 +48,21 @@ public class EnemyController : MonoBehaviour
 
     public void HasBeenKilled()
     {
-        bodyVisaul.SetActive(false);
-        Destroy(gameObject, 1f);
+
+        Invoke("DestroyEnemy", _explosionTargetMax);
+        
+    }
+
+    void GibEnemy()
+    {
+        if (!GetComponent<Gibbing>())
+            return;
+        GetComponent<Gibbing>().StartGib();
+    }
+
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
     private void Update()
     {

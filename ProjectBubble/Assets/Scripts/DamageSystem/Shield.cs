@@ -12,7 +12,7 @@ public class Shield : Health
     [SerializeField] private float brokenDelay;
     [SerializeField] private float regenHangTime = 3f;
 
-    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private SkinnedMeshRenderer meshRenderer, UnArmoured;
     [SerializeField] private Collider colliderShell;
 
     private float rateCooldown = 0;
@@ -67,7 +67,7 @@ public class Shield : Health
         {
             colliderShell.enabled = false;
             meshRenderer.enabled = false;
-
+            UnArmoured.enabled = true;
             SetState(shieldState.broken);
             Current = 0;
             StartCoroutine(SlowDie());

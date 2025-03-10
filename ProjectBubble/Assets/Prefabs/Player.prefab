@@ -1047,7 +1047,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5445495068776563929}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 67017173cc0bb6f4e80892ef77840340, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1165,7 +1165,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3180622528652189309, guid: 7b61c2af47b66854f8be17263df0bead, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b61c2af47b66854f8be17263df0bead, type: 3}
@@ -1266,7 +1267,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5451587549401804671, guid: f280cd75701137b4f8becc5ba8d5a999, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f280cd75701137b4f8becc5ba8d5a999, type: 3}
