@@ -27,14 +27,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2318859250681619467}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2055031604853182260}
   m_Father: {fileID: 3437991277289377863}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &594926167015577293
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -276,6 +276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navAgentComponent: {fileID: 7427499500848158982}
+  animator: {fileID: 7531409483089310322}
+  noArmourAnimator: {fileID: 5360651966639002958}
   aggressionRange: 15
   startWithArmor: 1
   meleeAttack: {fileID: 6816695063477503393, guid: 641bd1ad21506cd4fbb26ba60d4a8c12, type: 3}
@@ -695,6 +697,11 @@ Transform:
 --- !u!137 &5300695519621630092 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5945195004611371091, guid: 7027cd689b6c8d742b3a496864fcbc16, type: 3}
+  m_PrefabInstance: {fileID: 1949576117191239903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5360651966639002958 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7027cd689b6c8d742b3a496864fcbc16, type: 3}
   m_PrefabInstance: {fileID: 1949576117191239903}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3136180233972089211

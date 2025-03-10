@@ -3,7 +3,11 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 public class EnemyController : MonoBehaviour
 {
+    private static readonly int Moving = Animator.StringToHash("Moving");
+    private static readonly int Punch = Animator.StringToHash("Punch");
     [SerializeField] private NavMeshAgent navAgentComponent;
+    [SerializeField] private Animator animator;
+    [SerializeField] private Animator noArmourAnimator;
     [SerializeField] private float aggressionRange = 1000f;
     private GameObject target;
     [SerializeField] private bool startWithArmor = false;
@@ -106,12 +110,13 @@ public class EnemyController : MonoBehaviour
         {
             atk = PoolManager.Spawn(pref, attackSpawn.position, 
                 Quaternion.LookRotation(target.transform.position));
-
+            animator.SetBool(Punch, true);
             ProjectileScript projectile = atk.GetComponent<ProjectileScript>();
 
             projectile.RB.linearVelocity = attackSpawn.forward * rangedProjectileSpeed;
 
             OnRangedAttack?.Invoke();
+            animator.SetBool(Punch, false);
         }
     }
 
@@ -120,14 +125,16 @@ public class EnemyController : MonoBehaviour
         if (!meleeAttack) { return; }
 
         PoolObject atk;
-
+        
         if (meleeAttack.TryGetComponent(out PoolObject pref))
         {
+            noArmourAnimator.SetBool(Punch, true);
             atk = PoolManager.Spawn(pref, attackSpawn.position,
                 Quaternion.identity);
 
 
             OnMeleeAttack?.Invoke();
+            noArmourAnimator.SetBool(Punch, false);
         }
     }
 
@@ -149,6 +156,8 @@ public class EnemyController : MonoBehaviour
 
     private void SetDestination()
     {
+        animator.SetBool(Moving,navAgentComponent.velocity.magnitude>0);
+        noArmourAnimator.SetBool(Moving,navAgentComponent.velocity.magnitude>0);
         if (!target) { return; }
         navAgentComponent.destination = target.transform.position;
     }
