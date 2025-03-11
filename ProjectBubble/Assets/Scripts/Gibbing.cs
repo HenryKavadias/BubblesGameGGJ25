@@ -55,10 +55,10 @@ public class Gibbing : MonoBehaviour
             a.Lifespan = gib.DespawnTimer;
         }
         giblet.transform.localScale = Vector3.one * gib.PartScale;
-        Vector3 dir = Random.insideUnitCircle;
+        Vector3 dir = Random.insideUnitSphere;
         dir.y = Random.Range(-0.1f, 1);
 
-        giblet.GetComponent<Rigidbody>().linearVelocity = dir * Random.Range(forceMin, forceMax);
+        giblet.GetComponent<Rigidbody>().AddForce(dir * Random.Range(forceMin, forceMax),ForceMode.Impulse);
     }
     
 }
