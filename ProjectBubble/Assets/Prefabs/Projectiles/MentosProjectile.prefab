@@ -55,7 +55,7 @@ MonoBehaviour:
   Collisions:
     serializedVersion: 2
     m_Bits: 960
-  armoredModifier: 0.5
+  armoredModifier: 0
   unarmoredModifier: 1.5
   OnHit:
     m_PersistentCalls:

@@ -37,6 +37,13 @@ public class InputHandler : MonoBehaviour
     private float xRotation;
     private float yRotation;
 
+    public float Y_RotationSetStart
+    {
+        set
+        { 
+           yRotation = value;
+        }
+    }
     bool inputEnabled = false;
 
     private Vector2 movementInput = Vector2.zero;

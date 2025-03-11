@@ -5,11 +5,15 @@ using UnityEngine.Serialization;
 
 public class EnemyController : MonoBehaviour
 {
-    private static readonly int Moving = Animator.StringToHash("Moving");
-    private static readonly int Punch = Animator.StringToHash("Punch");
+    //private static readonly int Moving = Animator.StringToHash("Moving");
+    //private static readonly int Punch = Animator.StringToHash("Punch");
     [SerializeField] private NavMeshAgent navAgentComponent;
     [SerializeField] private Animator animator;
-    [SerializeField] private Animator noArmourAnimator;
+    
+    [SerializeField] private RuntimeAnimatorController noArmourAnimator;
+    [SerializeField] private RuntimeAnimatorController armourAnimator;
+    [SerializeField] private Avatar noArmourAvatar, armourAvatar;
+    
     [SerializeField] private float aggressionRange = 1000f;
     private GameObject target;
     [SerializeField] private bool startWithArmor = false;
@@ -50,11 +54,17 @@ public class EnemyController : MonoBehaviour
     }
 
     public void DisableArmor()
-    { ArmorIsUp = false; }
+    {
+        ArmorIsUp = false;
+        animator.runtimeAnimatorController = noArmourAnimator;
+        animator.avatar = noArmourAvatar;
+        
+        
+    }
 
     public void HasBeenKilled()
     {
-
+        animator.SetBool("Dead",true);
         Invoke("DestroyEnemy", _explosionTargetMax);
         
     }
@@ -114,16 +124,23 @@ public class EnemyController : MonoBehaviour
         {
             atk = PoolManager.Spawn(pref, attackSpawn.position, 
                 Quaternion.LookRotation(target.transform.position));
-            animator.SetBool(Punch, true);
+            Debug.Log("Shoot Player0");
+            animator.SetBool("Punch", true);
             ProjectileScript projectile = atk.GetComponent<ProjectileScript>();
 
             projectile.RB.linearVelocity = attackSpawn.forward * rangedProjectileSpeed;
 
             OnRangedAttack?.Invoke();
-            animator.SetBool(Punch, false);
+            
         }
     }
 
+    public void AttackFinished()
+    {
+        Debug.Log("STOP FIGHTING");
+        animator.SetBool("Punch", false);
+        //noArmourAnimator.SetBool(Punch, false);
+    }
     private void DoMeleeAttack()
     {
         if (!meleeAttack) { return; }
@@ -132,13 +149,13 @@ public class EnemyController : MonoBehaviour
         
         if (meleeAttack.TryGetComponent(out PoolObject pref))
         {
-            noArmourAnimator.SetBool(Punch, true);
+            animator.SetBool("Punch", true);
             atk = PoolManager.Spawn(pref, attackSpawn.position,
                 Quaternion.identity);
 
 
             OnMeleeAttack?.Invoke();
-            noArmourAnimator.SetBool(Punch, false);
+          
         }
     }
 
@@ -160,8 +177,8 @@ public class EnemyController : MonoBehaviour
 
     private void SetDestination()
     {
-        animator.SetBool(Moving,navAgentComponent.velocity.magnitude>0);
-        noArmourAnimator.SetBool(Moving,navAgentComponent.velocity.magnitude>0);
+        animator.SetBool("Moving",navAgentComponent.velocity.magnitude>0);
+        //animator.SetBool(Moving,navAgentComponent.velocity.magnitude>0);
         if (!target) { return; }
         navAgentComponent.destination = target.transform.position;
     }

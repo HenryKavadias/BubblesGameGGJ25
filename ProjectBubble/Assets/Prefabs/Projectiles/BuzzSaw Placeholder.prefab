@@ -109,7 +109,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 960
   armoredModifier: 1.5
-  unarmoredModifier: 0.5
+  unarmoredModifier: 0
   OnHit:
     m_PersistentCalls:
       m_Calls:
