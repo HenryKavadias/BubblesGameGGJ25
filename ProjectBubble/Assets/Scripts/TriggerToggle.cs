@@ -39,7 +39,7 @@ public class TriggerToggle : MonoBehaviour
         TriggerDisableCheck();
         
         
-        gameObject.SetActive(DeactivateOnActivation);
+        gameObject.SetActive(false);
     }
     
     void TriggerEnableCheck()

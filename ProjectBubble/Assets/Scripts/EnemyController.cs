@@ -80,7 +80,7 @@ public class EnemyController : MonoBehaviour
     {
         if (Director)
             Director.EnemyPerished(this);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -180,6 +180,8 @@ public class EnemyController : MonoBehaviour
         animator.SetBool("Moving",navAgentComponent.velocity.magnitude>0);
         //animator.SetBool(Moving,navAgentComponent.velocity.magnitude>0);
         if (!target) { return; }
+
+        if (navAgentComponent.destination == null) return;
         navAgentComponent.destination = target.transform.position;
     }
 

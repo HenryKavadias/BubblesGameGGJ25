@@ -27,6 +27,3 @@ newmtl __TB_empty
 newmtl black
 map_Kd 
 
-newmtl city4_5
-map_Kd 
-

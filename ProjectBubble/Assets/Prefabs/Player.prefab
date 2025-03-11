@@ -299,7 +299,7 @@ MonoBehaviour:
   airMinSpeed: 3
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
-  groundDrag: 4
+  groundDrag: 6
   jumpForce: 5
   jumpCooldown: 0.45
   airMultiplier: 0.4
